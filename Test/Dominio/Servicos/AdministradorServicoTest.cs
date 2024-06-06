@@ -3,12 +3,6 @@ using Microsoft.Extensions.Configuration;
 using MinimalAPI.Dominio.Entidades;
 using MinimalAPI.Dominio.Servicos;
 using MinimalAPI.Infraestrutura.Db;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Test.Dominio.Servicos
 {
@@ -62,7 +56,7 @@ namespace Test.Dominio.Servicos
             var administrador = administradorServico.BuscarPorId(adm.Id);
 
             //Assert
-            Assert.AreEqual(1, administrador.Id);
+            Assert.AreEqual(1, administrador?.Id);
         }
     }
 }
