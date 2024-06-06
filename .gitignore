@@ -3,6 +3,7 @@
 
 ### DotnetCore ###
 # .NET Core build folders
+/Properties/
 bin/
 obj/
 
@@ -475,6 +476,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+*.Properties/*
 
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio

@@ -17,9 +17,6 @@ namespace Test.Dominio.Servicos
     {
         private DbContexto CriarContextoTeste()
         {
-            //var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            /*var assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            var path = Path.GetFullPath(Path.Combine(assemblyPath ?? "","..", "..", ".."));*/
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -65,7 +62,7 @@ namespace Test.Dominio.Servicos
             var administrador = administradorServico.BuscarPorId(adm.Id);
 
             //Assert
-            Assert.AreEqual(1, actual: administrador.Id);
+            Assert.AreEqual(1, administrador.Id);
         }
     }
 }
