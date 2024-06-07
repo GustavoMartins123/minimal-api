@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using MinimalAPI.Dominio.Interfaces;
 using Test.Mocks;
+using MinimalAPI;
 
 namespace Test.Helpers
 {
@@ -25,6 +26,7 @@ namespace Test.Helpers
                 builder.ConfigureServices(services =>
                 {
                     services.AddScoped<IAdministradorServico, AdministradorServicoMock>();
+                    services.AddScoped<IVeiculoServico, VeiculoServicoMock>();
                 });
             });
             client = http.CreateClient();

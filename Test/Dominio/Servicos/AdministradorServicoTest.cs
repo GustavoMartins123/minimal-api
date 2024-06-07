@@ -24,11 +24,13 @@ namespace Test.Dominio.Servicos
             //Arrange
             var _context = CriarContextoTeste();
             _context.Database.ExecuteSqlRaw("TRUNCATE TABLE administradores");
-            var adm = new Administrador();
-            adm.Id = 1;
-            adm.Email = "teste@teste.com";
-            adm.Senha = "teste";
-            adm.Perfil = "Adm";
+            var adm = new Administrador()
+            {
+                Id = 1,
+                Email = "adm@teste.com",
+                Senha = "123456",
+                Perfil = "Editor"
+            };
 
             //Act
             var administradorServico = new AdministradorServico(_context);
@@ -44,11 +46,13 @@ namespace Test.Dominio.Servicos
             //Arrange
             var _context = CriarContextoTeste();
             _context.Database.ExecuteSqlRaw("TRUNCATE TABLE administradores");
-            var adm = new Administrador();
-            adm.Id = 1;
-            adm.Email = "teste@teste.com";
-            adm.Senha = "teste";
-            adm.Perfil = "Adm";
+            var adm = new Administrador()
+            {
+                Id = 1,
+                Email = "adm@teste.com",
+                Senha = "123456",
+                Perfil = "Editor"
+            };
 
             //Act
             var administradorServico = new AdministradorServico(_context);

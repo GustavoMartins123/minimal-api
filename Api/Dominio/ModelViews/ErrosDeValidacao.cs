@@ -2,6 +2,6 @@
 {
     public class ErrosDeValidacao
     {
-        public List<string> Mensagens {  get; set; }
+        public List<string>? Mensagens {  get; set; }
     }
 }

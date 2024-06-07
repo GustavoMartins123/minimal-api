@@ -6,7 +6,7 @@ namespace Test.Mocks
 {
     public class AdministradorServicoMock : IAdministradorServico
     {
-        private static List<Administrador> administradores = new List<Administrador>() {
+        private static readonly List<Administrador> administradores = new List<Administrador>() {
                 new Administrador()
                 {
                     Id = 1,

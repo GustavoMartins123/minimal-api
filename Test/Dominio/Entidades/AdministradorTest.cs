@@ -9,13 +9,14 @@ namespace MinimalAPI.Test.Dominio
         public void TestarGetSetPropriedades()
         {
             //Arrange
-            var adm = new Administrador();
-
-            //Act
-            adm.Id = 1;
-            adm.Email = "teste@teste.com";
-            adm.Senha = "teste";
-            adm.Perfil = "Adm";
+            var adm = new Administrador
+            {
+                //Act
+                Id = 1,
+                Email = "teste@teste.com",
+                Senha = "teste",
+                Perfil = "Adm"
+            };
 
             //Assert
             Assert.AreEqual(1, adm.Id);
