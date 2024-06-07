@@ -91,6 +91,7 @@ namespace Test.Requisições
                 });
 
                 Assert.IsNotNull(veiculosBuscados);
+                Assert.AreNotEqual(veiculo, veiculosBuscados.FirstOrDefault());
 
                 var veiculoEncontrado = veiculosBuscados.Any(v =>
                     v.Nome == veiculo.Nome &&
@@ -98,7 +99,7 @@ namespace Test.Requisições
                     v.Ano == veiculo.Ano
                 );
 
-                Assert.AreNotEqual(veiculo, veiculosBuscados.FirstOrDefault());
+                Assert.IsFalse(veiculoEncontrado);
             }
         }
         #endregion
