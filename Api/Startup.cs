@@ -106,7 +106,7 @@ namespace MinimalAPI
                 {
                     if (string.IsNullOrEmpty(key))
                     {
-                        return string.Empty;
+                        throw new Exception("A chave não pode ser vazia");
                     }
                     var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
                     var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -160,8 +160,7 @@ namespace MinimalAPI
                     };
                     return Results.Ok(adm);
 
-                }).RequireAuthorization()
-                  .RequireAuthorization(new AuthorizeAttribute
+                }).RequireAuthorization(new AuthorizeAttribute
                   {
                       Roles = "Adm"
                   })
@@ -181,8 +180,7 @@ namespace MinimalAPI
                         });
                     }
                     return Results.Ok(adms);
-                }).RequireAuthorization()
-                  .RequireAuthorization(new AuthorizeAttribute
+                }).RequireAuthorization(new AuthorizeAttribute
                   {
                       Roles = "Adm"
                   })
@@ -224,8 +222,7 @@ namespace MinimalAPI
                         Perfil = administrador.Perfil
                     });
 
-                }).RequireAuthorization()
-                  .RequireAuthorization(new AuthorizeAttribute
+                }).RequireAuthorization(new AuthorizeAttribute
                   {
                       Roles = "Adm"
                   })
@@ -270,8 +267,7 @@ namespace MinimalAPI
                     veiculoServico.Incluir(veiculo);
                     return Results.Created($"/veiculo/{veiculo.Id}", veiculo);
 
-                }).RequireAuthorization()
-                  .RequireAuthorization(new AuthorizeAttribute
+                }).RequireAuthorization(new AuthorizeAttribute
                   {
                       Roles = "Adm,Editor"
                   })
@@ -283,8 +279,7 @@ namespace MinimalAPI
 
                     return Results.Ok(veiculos);
 
-                }).RequireAuthorization()
-                  .RequireAuthorization(new AuthorizeAttribute
+                }).RequireAuthorization(new AuthorizeAttribute
                   {
                       Roles = "Adm,Editor"
                   })
@@ -299,8 +294,7 @@ namespace MinimalAPI
                     }
                     return Results.Ok(veiculo);
 
-                }).RequireAuthorization()
-                  .RequireAuthorization(new AuthorizeAttribute
+                }).RequireAuthorization(new AuthorizeAttribute
                   {
                       Roles = "Adm,Editor"
                   })
@@ -324,8 +318,7 @@ namespace MinimalAPI
                     veiculoServico.Atualizar(veiculo);
                     return Results.Ok(veiculo);
 
-                }).RequireAuthorization()
-                  .RequireAuthorization(new AuthorizeAttribute
+                }).RequireAuthorization(new AuthorizeAttribute
                   {
                       Roles = "Adm"
                   })
@@ -341,14 +334,11 @@ namespace MinimalAPI
                     veiculoServico.Apagar(veiculo);
                     return Results.NoContent();
 
-                }).RequireAuthorization()
-                  .RequireAuthorization(new AuthorizeAttribute
+                }).RequireAuthorization(new AuthorizeAttribute
                   {
                       Roles = "Adm"
                   })
                   .WithTags("Veiculo");
-
-
                 #endregion
             });
         }
